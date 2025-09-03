@@ -4,13 +4,26 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const quotesPath = path.join(__dirname, "quotes.json");
 
+let cachedQuotes = null;
+
 async function loadQuotes() {
+  if (cachedQuotes) return cachedQuotes;
+
   try {
     const data = await fs.readFile(quotesPath, "utf8");
-    return JSON.parse(data);
+    const quotes = JSON.parse(data);
+
+    cachedQuotes = quotes.filter(
+      q => q && typeof q.quote === "string" && typeof q.character === "string" && typeof q.anime === "string"
+    );
+
+    if (cachedQuotes.length === 0) {
+      throw new Error("No valid quotes found in JSON");
+    }
+
+    return cachedQuotes;
   } catch (err) {
     throw new Error("Failed to load quotes: " + err.message);
   }
@@ -26,15 +39,12 @@ function getRandomElement(array) {
  */
 export async function getRandomQuote() {
   const quotes = await loadQuotes();
-  if (!quotes || quotes.length === 0) {
-    throw new Error("No quotes available");
-  }
   return getRandomElement(quotes);
 }
 
 /**
  * Get all anime quotes
- * @returns {Promise<Array>}
+ * @returns {Promise<Array<{quote: string, character: string, anime: string}>>}
  */
 export async function getAllQuotes() {
   return loadQuotes();

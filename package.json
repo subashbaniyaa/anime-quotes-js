@@ -1,6 +1,6 @@
 {
   "name": "anime-quotes-js",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Get all as well as random anime quotes (with character & anime name).",
   "main": "index.js",
   "type": "module",
