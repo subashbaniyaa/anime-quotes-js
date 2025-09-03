@@ -1,16 +1,12 @@
-# Anime Quotes Module
+# anime-quotes-js
 
-A simple Node.js module to fetch **anime quotes** from a JSON file. It provides functions to get a **random quote** or **all quotes**.
-
+A simple Node.js module to fetch **anime quotes** from a JSON file.
 ---
 
 ## Features
 
 * Get a **random anime quote**
 * Get **all anime quotes**
-* Lightweight and easy to integrate
-* Works with modern ES modules (`import` / `export`)
-* Cached JSON loading for performance
 
 ---
 
