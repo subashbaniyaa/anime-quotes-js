@@ -9,8 +9,6 @@
 npm install anime-quotes-js
 ```
 
----
-
 **Import the module**
 
 ```js
@@ -30,4 +28,3 @@ console.log(quote);
 const quotes = await getAllQuotes();
 console.log(quotes);
 ```
----
