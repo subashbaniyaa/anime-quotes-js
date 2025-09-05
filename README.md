@@ -14,8 +14,6 @@ npm install anime-quotes-js
 
 ```bash
 git clone https://github.com/subashbaniyaa/anime-quotes-js.git
-cd anime-quotes-js
-npm install
 ```
 
 **Import the module**
