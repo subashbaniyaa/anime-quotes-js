@@ -3,157 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>anime-quotes-js — Demo & Docs</title>
-  <meta name="description" content="A simple demo HTML page for the anime-quotes-js Node module. Includes usage docs and a small client-side demo." />
+  <title>anime-quotes-js — Minimal Demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <style>
-    :root{--bg:#0f1724;--card:#111827;--muted:#9ca3af;--accent:#60a5fa}
-    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-    body{background:linear-gradient(180deg,#071029 0%, #071627 60%);color:#e6eef8;display:flex;align-items:flex-start;justify-content:center;padding:40px}
-    .container{max-width:980px;width:100%}
-    header{display:flex;gap:18px;align-items:center;margin-bottom:18px}
-    .logo{width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,#60a5fa,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263b}
-    h1{margin:0;font-size:22px}
-    .meta{color:var(--muted);font-size:13px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6);margin-bottom:18px}
-    pre{background:#020617;padding:12px;border-radius:8px;overflow:auto;color:#e6eef8;font-size:13px}
-    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Roboto Mono,Segoe UI Mono;}
-    .btn{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#05263b;font-weight:600;border:none;cursor:pointer}
-    .muted{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    .quote-box{min-height:120px;display:flex;flex-direction:column;gap:12px;justify-content:center}
-    .quote-text{font-size:18px;line-height:1.4}
-    .quote-meta{color:var(--muted);font-size:13px}
-    .list{max-height:300px;overflow:auto;margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.03)}
-    footer{color:var(--muted);font-size:13px;margin-top:14px}
-    .badge{height:20px}
+    body{background:#1e1e1e;color:#d4d4d4;font-family:Segoe UI,Roboto,Arial,sans-serif;margin:0;padding:20px;}
+    h1{font-size:24px;color:#60a5fa;margin-bottom:4px}
+    .muted{color:#9ca3af}
+    .card{background:#252526;border-radius:8px;padding:16px;margin-top:20px}
+    .badge{height:20px;vertical-align:middle;margin-left:6px}
+    pre{background:#1e1e1e;padding:0;border-radius:6px;overflow:auto;font-size:13px;position:relative;margin-top:0}
+    pre code{display:block;padding:12px}
+    code{font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;}
+    .btn{display:inline-block;margin-right:8px;margin-top:8px;padding:6px 12px;border:none;border-radius:4px;background:#60a5fa;color:#1e1e1e;font-weight:600;cursor:pointer}
+    .quote{font-size:18px;margin-top:12px}
+    .quote-meta{font-size:13px;color:#9ca3af}
+    .list{margin-top:12px;max-height:200px;overflow:auto;font-size:14px}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">AQ</div>
-      <div>
-        <h1>anime-quotes-js <span class="muted">— simple quotes module (demo)</span></h1>
-        <div class="meta">A small HTML documentation page that includes an interactive demo implementing <code>getRandomQuote</code> and <code>getAllQuotes</code> on the client.</div>
-      </div>
-    </header>
+  <h1>anime-quotes-js <img class="badge" src="https://img.shields.io/npm/v/anime-quotes-js.svg" alt="npm version"/></h1>
+  <p class="muted">A simple Node.js module to fetch <strong>anime quotes</strong> from a JSON file.</p>
 
-    <div class="card">
-      <img class="badge" src="https://img.shields.io/npm/v/anime-quotes-js.svg" alt="npm version" />
-      <h3>About</h3>
-      <p class="muted">A simple Node.js module to fetch <strong>anime quotes</strong> from a JSON file.</p>
-
-      <h4>Installation</h4>
-      <pre><code>npm install anime-quotes-js</code></pre>
-
-      <h4>Or using locally</h4>
-      <pre><code>git clone https://github.com/subashbaniyaa/anime-quotes-js.git</code></pre>
-
-      <h4>Import the module</h4>
-      <pre><code>import { getRandomQuote, getAllQuotes } from 'anime-quotes-js';</code></pre>
-
-      <h4>Usage</h4>
-      <pre><code>// Get a random quote
+  <div class="card">
+    <h3>Installation</h3>
+    <pre><code class="language-bash">npm install anime-quotes-js</code></pre>
+    <h3>Or using locally</h3>
+    <pre><code class="language-bash">git clone https://github.com/subashbaniyaa/anime-quotes-js.git</code></pre>
+    <h3>Import the module</h3>
+    <pre><code class="language-javascript">import { getRandomQuote, getAllQuotes } from 'anime-quotes-js';</code></pre>
+    <h3>Usage</h3>
+    <pre><code class="language-javascript">// Get a random quote
 const quote = await getRandomQuote();
 console.log(quote);
 
 // Get all quotes
 const quotes = await getAllQuotes();
-console.log(quotes);
-</code></pre>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Interactive demo</h3>
-        <p class="muted">This demo implements the same async API the module provides but runs in the browser using a local embedded JSON array. Use the buttons to test.</p>
-
-        <div class="quote-box">
-          <div id="quote" class="quote-text">Click "Random quote" to get one.</div>
-          <div id="quote-meta" class="quote-meta"></div>
-          <div style="display:flex;gap:12px;margin-top:8px">
-            <button id="randomBtn" class="btn">Random quote</button>
-            <button id="allBtn" class="btn" style="background:linear-gradient(90deg,#06b6d4,#7c3aed)">Show all</button>
-            <button id="downloadBtn" class="btn" style="background:linear-gradient(90deg,#10b981,#7c3aed)">Download JSON</button>
-          </div>
-
-          <div id="allList" class="list muted" style="display:none"></div>
-        </div>
-
-      </div>
-
-      <aside class="card">
-        <h4>What this page provides</h4>
-        <ul class="muted">
-          <li>Static docs copied from the README.</li>
-          <li>Client-side implementation of <code>getRandomQuote()</code> and <code>getAllQuotes()</code>.</li>
-          <li>Downloadable example JSON file and copyable code snippets.</li>
-        </ul>
-
-        <h4>Client API (browser)</h4>
-        <pre><code>async function getRandomQuote() -> Promise&lt;Quote&gt;
-async function getAllQuotes()   -> Promise&lt;Quote[]&gt;</code></pre>
-
-        <p class="muted">Quote shape: <code>{ quote: string, character: string, anime: string }</code></p>
-
-        <footer>Made for demo purposes • edit freely</footer>
-      </aside>
-    </div>
-
-    <div class="card" style="margin-top:18px">
-      <h3>Source & example implementation</h3>
-      <pre><code>// The demo implements the same API as the README
-const quotes = [
-  {"quote":"People's lives don't end when they die, it ends when they lose faith.","character":"Itachi Uchiha","anime":"Naruto"},
-  {"quote":"Whatever you lose, you’ll find it again. But what you throw away forever, you’ll never get back.","character":"Kenshin Himura","anime":"Rurouni Kenshin"},
-  {"quote":"If you don’t take risks, you can’t create a future.","character":"Monkey D. Luffy","anime":"One Piece"},
-  {"quote":"You can’t sit around envying other people’s worlds. You have to go out and change your own.","character":"Chiaki Mamiya","anime":"The Girl Who Leapt Through Time"},
-  {"quote":"No matter how deep the night, it always turns to day, eventually.","character":"Brook","anime":"One Piece"},
-  {"quote":"I'm the hope of the universe. I'm the answer to all living things that cry out for peace.","character":"Goku","anime":"Dragon Ball Z"}
-];
-
-export async function getRandomQuote(){
-  await delay(120); // simulate async
-  const idx = Math.floor(Math.random()*quotes.length);
-  return quotes[idx];
-}
-
-export async function getAllQuotes(){
-  await delay(120);
-  return quotes.slice();
-}
-</code></pre>
-
-      <p class="muted">You can copy this file into your project and adapt it to fetch from the real package's JSON file on the server or from the npm module when used in Node.js.</p>
-    </div>
-
+console.log(quotes);</code></pre>
   </div>
 
+  <div class="card">
+    <h3>Interactive demo</h3>
+    <button id="randomBtn" class="btn">Random quote</button>
+    <button id="allBtn" class="btn">Show all</button>
+    <button id="downloadBtn" class="btn">Download JSON</button>
+    <div id="quote" class="quote">Click "Random quote" to get one.</div>
+    <div id="quote-meta" class="quote-meta"></div>
+    <div id="allList" class="list" style="display:none"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
   <script>
-    // demo client-side implementation matching the README API
-    const demoQuotes = [
-      {quote:"People's lives don't end when they die, it ends when they lose faith.",character:"Itachi Uchiha",anime:"Naruto"},
-      {quote:"Whatever you lose, you’ll find it again. But what you throw away forever, you’ll never get back.",character:"Kenshin Himura",anime:"Rurouni Kenshin"},
-      {quote:"If you don’t take risks, you can’t create a future.",character:"Monkey D. Luffy",anime:"One Piece"},
-      {quote:"You can’t sit around envying other people’s worlds. You have to go out and change your own.",character:"Chiaki Mamiya",anime:"The Girl Who Leapt Through Time"},
-      {quote:"No matter how deep the night, it always turns to day, eventually.",character:"Brook",anime:"One Piece"},
-      {quote:"I'm the hope of the universe. I'm the answer to all living things that cry out for peace.",character:"Goku",anime:"Dragon Ball Z"}
-    ];
+    async function fetchQuotes() {
+      const res = await fetch('./quotes.json');
+      if (!res.ok) throw new Error('Cannot fetch quotes.json');
+      return res.json();
+    }
 
     function delay(ms){return new Promise(res=>setTimeout(res,ms));}
 
     async function getRandomQuote(){
+      const arr = await fetchQuotes();
       await delay(80);
-      const idx = Math.floor(Math.random()*demoQuotes.length);
-      return demoQuotes[idx];
+      return arr[Math.floor(Math.random()*arr.length)];
     }
 
     async function getAllQuotes(){
+      const arr = await fetchQuotes();
       await delay(80);
-      return demoQuotes.slice();
+      return arr;
     }
 
-    // UI wiring
     const randomBtn = document.getElementById('randomBtn');
     const allBtn = document.getElementById('allBtn');
     const downloadBtn = document.getElementById('downloadBtn');
@@ -170,19 +91,13 @@ export async function getAllQuotes(){
 
     allBtn.addEventListener('click', async ()=>{
       const arr = await getAllQuotes();
-      allList.innerHTML = arr.map(x=>`<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.02)"><strong>"${x.quote}"</strong><div class="muted">${x.character} — ${x.anime}</div></div>`).join('');
+      allList.innerHTML = arr.map(x=>`<div style='padding:6px 0;border-bottom:1px solid #333'><strong>"${x.quote}"</strong><div class='quote-meta'>${x.character} — ${x.anime}</div></div>`).join('');
       allList.style.display = 'block';
     });
 
     downloadBtn.addEventListener('click', ()=>{
-      const blob = new Blob([JSON.stringify(demoQuotes, null, 2)], {type:'application/json'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = 'anime-quotes.json';
-      document.body.appendChild(a); a.click(); a.remove();
-      URL.revokeObjectURL(url);
+      window.location.href = './quotes.json';
     });
-
   </script>
 </body>
 </html>
