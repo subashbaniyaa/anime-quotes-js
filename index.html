@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>anime-quotes-js — Minimal Demo</title>
+  <title>anime-quotes-js</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <style>
     body{background:#1e1e1e;color:#d4d4d4;font-family:Segoe UI,Roboto,Arial,sans-serif;margin:0;padding:20px;}
@@ -32,7 +32,7 @@
     <h3>Import the module</h3>
     <pre><code class="language-javascript">import { getRandomQuote, getAllQuotes } from 'anime-quotes-js';</code></pre>
     <h3>Usage</h3>
-    <pre><code class="language-javascript">// Get a random quote
+    <pre><code class="language-javascript">
 const quote = await getRandomQuote();
 console.log(quote);
 
@@ -45,7 +45,7 @@ console.log(quotes);</code></pre>
     <h3>Interactive demo</h3>
     <button id="randomBtn" class="btn">Random quote</button>
     <button id="allBtn" class="btn">Show all</button>
-    <button id="downloadBtn" class="btn">Download JSON</button>
+    <button id="downloadBtn" class="btn">View JSON</button>
     <div id="quote" class="quote">Click "Random quote" to get one.</div>
     <div id="quote-meta" class="quote-meta"></div>
     <div id="allList" class="list" style="display:none"></div>
