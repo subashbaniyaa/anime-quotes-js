@@ -1,6 +1,8 @@
-# anime-quotes-js
+# anime-quotes-js 
+![npm](https://img.shields.io/npm/v/anime-quotes-js.svg)
 
 *A simple Node.js module to fetch **anime quotes** from a JSON file.*
+
 ---
 
 **Installation**
